@@ -9,6 +9,7 @@ calculate and output F(n) (with a numerical input, output the nth number in the 
 
 public class Fibonacci {
     public static void main(String[] args) {
+        System.out.println(fib(0)); //0
         System.out.println(fib(1)); //1
         System.out.println(fib(2)); //1
         System.out.println(fib(3)); //2
@@ -16,6 +17,8 @@ public class Fibonacci {
         System.out.println(fib(5)); //5
         System.out.println(fib(6)); //8
         System.out.println(fib(7)); //13
+        System.out.println(fib(8)); //21
+        System.out.println(fib(9)); //34
     }
 
     /*
@@ -30,7 +33,7 @@ public class Fibonacci {
       always start at 1
       have a counter for iterations
       the next number is always the sum of the last two
-      fib(n -1) + fib(n - 2) = fib(n + 1)
+      fib(n - 1) + fib(n - 2) = fib(n)
 
       fib(1) + fib(0) = fib(2)
       1 +
@@ -39,25 +42,14 @@ public class Fibonacci {
 
      */
     public static int fib(int n) {
-        int counter = 0;
-        int sum = 0;
-
         //base case
-        if (counter == n) {
-            return sum;
+        if (n == 0) {
+            return 0;
+        } else if (n == 1) {
+            return 1;
         }
-
         //return a recursive call
-        fib();
+        return fib(n - 1) + fib(n - 2);
     }
 
-//    public static int sumBuilder(int n) {
-//        //base case
-//        if (counter == n) {
-//            return sum;
-//        }
-//
-//        //return a recursive call
-//        fib();
-//    }
 }

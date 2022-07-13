@@ -17,3 +17,18 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+configurations {
+    implementation {
+        canBeResolved = true
+    }
+}
+jar {
+    manifest {
+
+        attributes(
+                'Class-Path': configurations.implementation.collect { it.getName() }.join(' '),
+                'Main-Class': 'com.galvanize.Fibonacci'
+        )
+    }
+}
